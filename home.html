@@ -32,7 +32,7 @@
    <div class="flex gap-2 relative">
     <div class="">
      <i class="fa-solid z-5 absolute left-2 top-3 fa-magnifying-glass"></i>
-     <input type="text" placeholder="         Search" class="input input-bordered w-24 md:w-auto" />
+     <input type="text" placeholder="         Search" class="input input-bordered pr-20 w-24 md:w-auto" />
     </div>
     <div>
      <i class="fa-solid absolute top-3 left-60 text-white z-5 fa-plus"></i>
@@ -42,6 +42,53 @@
    </div>
   </div>
  </header>
+ <section class="border-gray-300 bg-gray-200 rounded w-3/4 mx-auto pl-2 py-3 mt-5 shadow-xl">
+  <button onclick="switchTab('all')" id="all-tab" class="btn px-10">All</button>
+  <button onclick="switchTab('open')" id="open-tab" class="btn px-10">Open</button>
+  <button onclick="switchTab('closed')" id="closed-tab" class="btn px-10">Closed</button>
+ </section>
+ <section class="border-gray-300 bg-gray-200 rounded w-3/4 mx-auto px-4 py-3 mt-5 shadow-xl">
+  <div class="flex justify-between items-center">
+   <div class="flex items-center">
+    <img class="h-[70%] bg-blue-50 p-2 rounded-full" src="./assets/Aperture.png" alt="">
+    <div class="ml-5">
+     <h1 class="text-2xl font-semibold">50 Issue</h1>
+     <p class="text-[#64748B] font-bold">Track and manage your project issues</p>
+    </div>
+   </div>
+   <div class="flex gap-3">
+    <div class="flex gap-2">
+     <img src="./assets/Open-Status.png" alt="">
+     <p>Open</p>
+    </div>
+    <div class="flex gap-2">
+     <img src="./assets/Closed- Status .png" alt="">
+     <p>Closed</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="cards-section" class="cards w-3/4 mx-auto grid mt-2 grid-cols-3 gap-2">
+  <div class="card bg-base-200  shadow-sm p-3 space-y-5 ">
+   <div class="flex justify-between items-center">
+    <img src="./assets/Open-Status.png" alt="">
+    <button class="bg-red-300 text-red-700 px-2 rounded-lg">High</button>
+   </div>
+   <h2 class="text-xl font-bold">Fix navigation menu on mobile devices</h2>
+   <p class="text-[#64748B] ">The navigation menu doesn't collapse properly on mobile devices...</p>
+   <div>
+    <button class="bg-red-300 text-red-700 px-2 rounded-lg">hello</button>
+    <button class="bg-green-300 text-green-700 px-2 rounded-lg">hello</button>
+   </div>
+   <p>#1
+    by john_doe</p>
+   <p>1/15/2024</p>
+  </div>
+
+
+
+ </section>
  <script src="/js/home.js"></script>
 </body>
 
