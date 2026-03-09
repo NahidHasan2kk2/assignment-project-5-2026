@@ -61,12 +61,16 @@ const displayCardData = (datas) => {
 
     if (data.priority === "high") {
       priorityColor = "bg-red-300 text-red-700";
+
     }
     else if (data.priority === "medium") {
       priorityColor = "bg-yellow-300 text-yellow-700";
+
     }
     else {
-      priorityColor = "bg-purple-500 text-purple-700";
+
+      priorityColor = "bg-orange-300 text-orange-700";
+
     }
 
     if (data.status === "open") {
@@ -80,7 +84,7 @@ const displayCardData = (datas) => {
      <div onclick="loadModalCardData(${data.id})" class="card bg-base-100 ${borderColor} shadow-lg p-5 space-y-5 ">
        <div class="flex justify-between items-center">
         <img src="./assets/${data.status}.status.png" alt="">
-        <button class="bg-red-300 text-red-700 px-2 ${priorityColor} rounded-lg">${data.priority}</button>
+        <button class=" px-2 ${priorityColor} rounded-lg">${data.priority}</button>
        </div>
        <h2 class="text-xl font-bold">${data.title}</h2>
        <p class="text-[#64748B] ">${data.description}.</p>
@@ -141,7 +145,7 @@ const displayModalCard = (datas) => {
     priorityColor = "bg-yellow-300 text-yellow-700";
   }
   else {
-    priorityColor = "bg-purple-500 text-purple-700";
+    priorityColor = "bg-orange-300 text-orange-700";
   }
 
   if (datas.status === "open") {
@@ -170,7 +174,7 @@ const displayModalCard = (datas) => {
     <p>
      priority
     </p>
-   <button class="bg-red-300 text-red-700 ${priorityColor} px-2 mt-1 rounded-lg">${datas.priority}</button>
+   <button class="${priorityColor} px-2 mt-1 rounded-lg">${datas.priority}</button>
    </div>
   </div>
 
