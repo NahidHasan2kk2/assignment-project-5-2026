@@ -1,4 +1,5 @@
 let currentStatus = 'all';
+
 const activeTab = ['bg-primary', 'text-white'];
 const inActiveTab = ['bg-gray', 'text-black'];
 
@@ -116,9 +117,50 @@ const loadModalCardData = async (id) => {
 }
 
 const displayModalCard = (datas) => {
+
   const modalBox = document.getElementById('modal-card-box');
+  let priorityColor = "";
+  let buttonColor = "";
+  if (datas.priority === "high") {
+    priorityColor = "bg-red-300 text-red-700";
+  }
+  else if (datas.priority === "medium") {
+    priorityColor = "bg-yellow-300 text-yellow-700";
+  }
+  else {
+    priorityColor = "bg-purple-500 text-purple-700";
+  }
+
+  if (datas.status === "open") {
+    buttonColor = "bg-green-500 text-green-700";
+  }
+  else if (datas.status === "closed") {
+    buttonColor = "bg-purple-500 text-purple-700";
+  }
   modalBox.innerHTML = `
-  <h1>hello</h1>
+
+  <h1 class="text-2xl font-bold">${datas.title}</h1>
+  <div class="flex items-center">
+  <button class="border-0 px-5 text-white rounded-lg ${buttonColor}">${datas.status}</button> <span class="mx-5">${datas.status} by ${datas.author}</span><span>${datas.createdAt}</span>
+  
+  </div>
+  <div>
+  ${showArrayProducts(datas.labels)}
+  </div>
+  <p class="text-[#64748B]">${datas.description}</p>
+  <div class="flex justify-between items-center">
+   <div>
+    <h1>Assignee:</h1>
+    <p>${datas.author}</p>
+   </div>
+   <div class="pr-30">
+    <p>
+     priority
+    </p>
+   <button class="bg-red-300 text-red-700 ${priorityColor} px-2 mt-1 rounded-lg">${datas.priority}</button>
+   </div>
+  </div>
+
   <div class="modal-action">
     <form method="dialog">
      <!-- if there is a button in form, it will close the modal -->
