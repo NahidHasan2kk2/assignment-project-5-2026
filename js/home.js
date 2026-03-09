@@ -23,8 +23,21 @@ switchTab(currentStatus);
 
 const showArrayProducts = arr => arr.map(er => `<span class="bg-orange-300 text-red-700 px-2 rounded-lg">${er}</span>`).join(" ");
 
-const loadCardData = async () => {
+const manageSpinner = (status) => {
+  const cardContainer = document.getElementById('cards-container');
+  const spinner = document.getElementById('spinner');
 
+  if (status === true) {
+    spinner.classList.remove('hidden');
+    cardContainer.classList.add('hidden');
+  } else {
+    spinner.classList.add('hidden');
+    cardContainer.classList.remove('hidden');
+  }
+}
+
+const loadCardData = async () => {
+  manageSpinner(true);
   const response = await fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues');
   const data = await response.json();
   displayCardData(data.data);
@@ -85,7 +98,7 @@ ${showArrayProducts(data.labels)}
 
   }
 
-
+  manageSpinner(false);
 }
 
 const filterData = (datas) => {
@@ -164,11 +177,31 @@ const displayModalCard = (datas) => {
   <div class="modal-action">
     <form method="dialog">
      <!-- if there is a button in form, it will close the modal -->
-     <button class="btn">Close</button>
+     <button class="btn btn-dash btn-error">Close</button>
     </form>
    </div>
   `
   document.getElementById('model_card').showModal();
 }
+
+
+document.getElementById('new-issue-btn').addEventListener('click', async function () {
+  const searchInputValue = document.getElementById('search-input-field').value.toLowerCase();
+  if (searchInputValue.length > 0 && isNaN(searchInputValue)) {
+    const url = `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchInputValue}`
+
+
+    const response = await fetch(url);
+    const data = await response.json();
+    displayCardData(data.data)
+    filterData(data.data)
+
+  } else {
+    alert('please enter the letter');
+  }
+
+
+
+})
 
 loadCardData();
