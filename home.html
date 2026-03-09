@@ -22,14 +22,14 @@
 <body>
 
  <header>
-  <div class="navbar bg-base-100 shadow-sm">
-   <div class="flex-1">
-    <div class="flex items-center">
+  <div class="navbar bg-base-100 shadow-sm flex flex-col md:flex-row gap-3 md:gap-0">
+   <div class="flex-1 ">
+    <div class="flex  items-center">
      <img class="w-10" src="./assets/github-logo.png" alt="">
      <a class="btn btn-ghost text-xl">GitHub Issues Tracker</a>
     </div>
    </div>
-   <div class="flex gap-2 relative">
+   <div class="flex flex-col md:flex-row gap-2 items-center relative ">
     <div class="">
      <label class="input">
       <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -43,13 +43,14 @@
     </div>
     <div>
      <i class="fa-solid absolute top-3 left-65 text-white z-5 fa-plus"></i>
-     <button id="new-issue-btn" class="btn pl-10 btn-primary"> New issue</button>
+     <button id="new-issue-btn" class="btn pl-5 md:pl-10 btn-primary"> New issue</button>
     </div>
 
    </div>
   </div>
  </header>
- <section class="border-gray-300 bg-gray-200 rounded w-[90%] mx-auto pl-2 py-3 mt-5 shadow-xl">
+ <section
+  class="border-gray-300 bg-gray-200 flex flex-col md:flex-row rounded w-[90%] mx-auto pl-2 py-3 mt-5 shadow-xl">
   <button onclick="switchTab('all')" id="all-tab" class="btn px-10">All</button>
   <button onclick="switchTab('open')" id="open-tab" class="btn px-10">Open</button>
   <button onclick="switchTab('closed')" id="closed-tab" class="btn px-10">Closed</button>
@@ -57,10 +58,10 @@
 
 
  <section class="border-gray-300 bg-gray-200 rounded w-[90%] mx-auto px-4 py-3 mt-5 shadow-xl">
-  <div class="flex justify-between items-center">
-   <div class="flex items-center">
+  <div class="flex flex-col md:flex-row justify-between items-center">
+   <div class="flex flex-col md:flex-row items-center">
     <img class="h-[70%] bg-blue-50 p-2 rounded-full" src="./assets/Aperture.png" alt="">
-    <div class="ml-5">
+    <div class="ml-5  md:text-left text-center">
      <h1 class="text-2xl font-semibold"><span id="count-issue">50</span> Issue</h1>
      <p class="text-[#64748B] font-bold">Track and manage your project issues</p>
     </div>
@@ -85,7 +86,7 @@
   <span class="loading loading-spinner loading-xl"></span>
  </div>
 
- <div id="cards-container" class="cards w-[90%] mx-auto grid mt-2 grid-cols-4 gap-5">
+ <div id="cards-container" class="cards w-[90%] mx-auto grid mt-2 grid-cols-1 md:grid-cols-4 gap-5">
   <!-- <div class="card bg-base-200  shadow-sm p-3 space-y-5 ">
    <div class="flex justify-between items-center">
     <img src="./assets/Open-Status.png" alt="">
